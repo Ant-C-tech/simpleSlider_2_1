@@ -33,7 +33,7 @@ let slider2 = new Slider({
 
 let slider3 = new Slider({
         container: '.galery3',
-        auto: true,
+        auto: false,
         autoplayInterval: 2000,
         animationType: 'fly',
         animationTime: 2000,
