@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="bootstrap.min.css">
+
+</head>
+
+<body class="text-center">
+
+    <div class="container text-center mt-3 mb-3 pt-3 rounded bg-light">
+        <h1 class="display-4 bg-primary rounded pb-1 mb-3 text-light">Simple Slider 2.1</h1>
+        <h5 class="border-top text-primary pt-3 pb-3">Create a beautiful responsive carousel slider.</h5>
+        <p class="text-primary mb-1">Almost all options are responsive and include very intuitive breakpoints settings.
+        </p>
+        <p class="text-primary mb-5">No matter if you are a beginner or an advanced user, starting with SimpleSlider 2.1
+            is
+            easy.</p>
+
+        <h2 class="display-5 bg-primary rounded mb-3 text-light">Installation</h2>
+        <h5 class="border-top text-primary pt-3 pb-3">We’ll be happy to help you!</h5>
+
+        <p class="mb-1 font-weight-bold">Include CSS.</p>
+        <p class="mb-1">First, include Bootstrap 4 CSS files into your HTML head:</p>
+        <pre class="bg-info rounded pl-1 pr-1">
+            <code>
+&#60link rel="stylesheet" href="bootstrap.min.css"&#62
+            </code>
+        </pre>
+
+        <p class="mb-1 font-weight-bold">Include JS.</p>
+        <p class="mb-1">Yep, include jQuery 3.5.1, simpleSlider 2.1 and your own app files before end tag &#60/body&#62.
+        </p>
+        <pre class="bg-info rounded pl-1 pr-1">
+            <code>
+&#60script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"&#62&#60/script&#62
+&#60script defer src="simpleSlider_2_0.js"&#62&#60/script&#62
+&#60script defer src="app.js"&#62&#60/script&#62
+            </code>
+        </pre>
+
+        <p class="mb-1 font-weight-bold">Include HTML.</p>
+        <p class="mb-1">Create div-container with random class-name for every slider you need at any place of HTML you
+            need.</p>
+        <p class="mb-1">For example, we created three containers:</p>
+        <pre class="bg-info rounded">
+            <code>
+&#60div class="container galery">&#60/div>
+&#60div class="container galery2">&#60/div>
+&#60div class="container galery3">&#60/div>
+            </code>
+        </pre>
+
+        <p class="mb-1 font-weight-bold">Add slides collection.</p>
+        <p class="mb-1">Add to your app.js some collections of images for every slider you need.</p>
+        <p class="mb-1">Every slide contains "src" and "alt" atributes.</p>
+        <p class="mb-1">For example, we add two collections:</p>
+
+        <pre class="bg-info rounded text-left pl-5">
+            <code>
+const imgCollection = {
+    slide1: ['https://picsum.photos/800', '#'],
+    slide2: ['https://picsum.photos/801', '#'],
+    slide3: ['https://picsum.photos/802', '#'],
+    slide4: ['https://picsum.photos/703', '#'],
+    slide5: ['https://picsum.photos/804', '#'],
+}
+
+const imgCollection2 = {
+    slide1: ['https://picsum.photos/750', '#'],
+    slide2: ['https://picsum.photos/751', '#'],
+    slide3: ['https://picsum.photos/652', '#'],
+    slide4: ['https://picsum.photos/753', '#'],
+    slide5: ['https://picsum.photos/754', '#'],
+}
+            </code>
+        </pre>
+
+        <p class="mb-1 font-weight-bold">Default settings.</p>
+        <p class="mb-1">By default Simple Slider 2.1 has next options:</p>
+        <p class="mb-1"></p>
+
+        <pre class="bg-info rounded text-left pl-5 mb-5">
+            <code>
+//Default settings:
+{
+    auto: false,
+    autoplayInterval: 0,
+    animationType: 'fade',
+    animationTime: 1500,
+}
+
+//Default slide collections (imgCollection):
+{
+    slide1: ['https://picsum.photos/900', '#'],
+    slide2: ['https://picsum.photos/901', '#'],
+    slide3: ['https://picsum.photos/902', '#'],
+    slide4: ['https://picsum.photos/903', '#'],
+    slide5: ['https://picsum.photos/904', '#'],
+}
+            </code>
+        </pre>
+
+        <p class="mb-1 font-weight-bold">Call the plugin.</p>
+        <p class="mb-5">Now initialize function in app.js for every slider in next way:</p>
+
+        <pre class="bg-info rounded text-left pl-5 mb-5">
+            <code>
+let slider = new Slider({
+    container: '...class-name of div-container provided for this slider...',
+    auto: '...slide show true/false...',
+    autoplayInterval: '...time in ms to showing next slide...',
+    animationType: '...type of animation fade/carousel/fly...',
+    animationTime: '...duration in ms...',
+},
+imgCollection)
+            </code>
+        </pre>
+
+
+        <h2 class="display-5 bg-primary rounded mb-3">Examples</h2>
+        <h5 class="border-top text-primary pt-3 pb-3">We’ll be happy to show you!</h5>
+
+
+
+        <p class="mb-1 font-weight-bold">Example #1.</p>
+        <p class="mb-1">Initialization with default settings:</p>
+
+        <pre class="bg-info rounded text-left pl-5">
+            <code>
+let slider = new Slider({
+    container: '.galery',
+})
+            </code>
+        </pre>
+
+        <p class="mb-1">Let's see:</p>
+        <div class="container galery text-center mt-3 mb-3"></div>
+
+        <p class="mb-1 font-weight-bold">Example #2.</p>
+        <p class="mb-1">Initialization:</p>
+
+        <pre class="bg-info rounded text-left pl-5">
+            <code>
+let slider2 = new Slider({
+    container: '.galery2',
+    auto: true,
+    autoplayInterval: 3000,
+    animationType: 'carousel',
+    animationTime: 1500,
+},
+imgCollection)
+            </code>
+        </pre>
+
+        <p class="mb-1">Let's see:</p>
+        <div class="container galery2 text-center mt-3 mb-3"></div>
+
+        <p class="mb-1 font-weight-bold">Example #3.</p>
+        <p class="mb-1">Initialization:</p>
+
+        <pre class="bg-info rounded text-left pl-5">
+            <code>
+let slider3 = new Slider({
+    container: '.galery3',
+    auto: false,
+    autoplayInterval: 2000,
+    animationType: 'fly',
+    animationTime: 2000,
+},
+imgCollection2)
+            </code>
+        </pre>
+
+        <p class="mb-1">Let's see:</p>
+        <div class="container galery3 text-center mt-3 mb-3"></div>
+
+
+        <h5 class="border-top text-primary pt-3 pb-3">Enjoy it!</h5>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="simpleSlider_2_1.js"></script>
+    <script defer src="app.js"></script>
+</body>
+
+</html>
