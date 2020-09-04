@@ -24,7 +24,7 @@ let slider = new Slider({
 
 let slider2 = new Slider({
         container: '.galery2',
-        auto: false,
+        auto: true,
         autoplayInterval: 3000,
         animationType: 'carousel',
         animationTime: 1500,
@@ -33,7 +33,7 @@ let slider2 = new Slider({
 
 let slider3 = new Slider({
         container: '.galery3',
-        auto: false,
+        auto: true,
         autoplayInterval: 2000,
         animationType: 'fly',
         animationTime: 2000,
