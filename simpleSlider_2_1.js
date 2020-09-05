@@ -10,11 +10,11 @@ function Slider(objSettings, objSource) {
 
     //Default source
     const imgCollectionDefault = {
-        slide1: ['https://picsum.photos/900', '#'],
-        slide2: ['https://picsum.photos/901', '#'],
-        slide3: ['https://picsum.photos/902', '#'],
-        slide4: ['https://picsum.photos/903', '#'],
-        slide5: ['https://picsum.photos/904', '#'],
+        slide1: ['img/img1.jpg', '#'],
+        slide2: ['img/img2.jpg', '#'],
+        slide3: ['img/img3.jpg', '#'],
+        slide4: ['img/img4.jpg', '#'],
+        slide5: ['img/img5.jpg', '#'],
     }
 
     //Constructor
@@ -48,6 +48,9 @@ function Slider(objSettings, objSource) {
     let nextFlag = false
     let prevFlag = false
 
+    //Disable button during animation
+    let isRun = false
+
     $(document).ready(() => {
         this.createContent()
 
@@ -74,7 +77,12 @@ function Slider(objSettings, objSource) {
                 this.startSlideShow()
             }, 5000)
 
+            if (isRun) {
+                return false
+            }
+
             this.next()
+            isRun = true
         })
 
         $btnPrev.on('click', () => {
@@ -85,7 +93,13 @@ function Slider(objSettings, objSource) {
                 this.startSlideShow()
             }, 5000)
 
+            if (isRun) {
+                return false
+            }
+
             this.prev()
+
+            isRun = true
         })
     })
 
@@ -203,6 +217,7 @@ function Slider(objSettings, objSource) {
             opacity: 1,
         }, this.animationTime, () => {
             this.resizeContainer()
+            isRun = false
         })
     }
 
@@ -212,11 +227,7 @@ function Slider(objSettings, objSource) {
             left: -currentslideWidth * 2 + 'px',
         }, this.animationTime, () => {
             this.resizeContainer()
-        }).animate({
-            opacity: 0,
-        }, 0).animate({
-            left: '50%',
-        }, 0)
+        })
     }
 
     this.nextSlideСarouselLeft = function () {
@@ -229,6 +240,7 @@ function Slider(objSettings, objSource) {
             left: '50%',
         }, this.animationTime, () => {
             this.resizeContainer()
+            isRun = false
         })
         nextFlag = false
     }
@@ -238,11 +250,7 @@ function Slider(objSettings, objSource) {
             left: currentslideWidth * 2 + 'px',
         }, this.animationTime, () => {
             this.resizeContainer()
-        }).animate({
-            opacity: 0,
-        }, 0).animate({
-            left: '50%',
-        }, 0)
+        })
     }
 
     this.nextSlideСarouselRight = function () {
@@ -255,6 +263,7 @@ function Slider(objSettings, objSource) {
             left: '50%',
         }, this.animationTime, () => {
             this.resizeContainer()
+            isRun = false
         })
         prevFlag = false
     }
@@ -277,8 +286,8 @@ function Slider(objSettings, objSource) {
             width: currentslideWidth + 'px',
         }, this.animationTime, () => {
             this.resizeContainer()
+            isRun = false
         })
     }
-
 
 }
